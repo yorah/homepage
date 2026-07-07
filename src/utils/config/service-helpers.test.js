@@ -331,6 +331,7 @@ describe("utils/config/service-helpers", () => {
               { type: "grafana", alerts: [] },
               { type: "unraid", pool1: "a", pool2: "b", pool3: "c", pool4: "d" },
               { type: "yourspotify", interval: "daily" },
+              { type: "qui", instance: 1 },
             ],
           },
         ],
@@ -369,6 +370,7 @@ describe("utils/config/service-helpers", () => {
     );
     expect(widgets.find((w) => w.type === "jellystat")).toEqual(expect.objectContaining({ days: 7 }));
     expect(widgets.find((w) => w.type === "lubelogger")).toEqual(expect.objectContaining({ vehicleID: 12 }));
+    expect(widgets.find((w) => w.type === "qui")).toEqual(expect.objectContaining({ instance: 1 }));
   });
 
   it("cleanServiceGroups removes calendar integration urls from frontend widget payload", async () => {
